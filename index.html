@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>배틀그라운드 생존 교범 — PC 팁 모음 · 사플 테스트</title>
+<meta name="description" content="배틀그라운드(PC) 팁을 핵심·중요·사소로 나눠 정리한 비공식 교범과 헤드폰 사운드 플레이(사플) 방향 테스트.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Big+Shoulders+Stencil+Display:wght@700;900&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%232c3119%27/%3E%3Cpath d=%27M16 5l9 22H7z%27 fill=%27%23f0661a%27/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="hazard" aria-hidden="true"></div>
+<p class="classif"><span>비공식 팬 자료</span><span>교육·연습용</span><span>2026.10.04 개정 · 패치 43.1 기준</span></p>
+
+<header class="mast">
+  <div class="mast-l">
+    <p class="doccode">FM 26-43 / PUBG: BATTLEGROUNDS (PC) / 길동 보급용</p>
+    <h1>배틀그라운드<br><em>생존 교범</em></h1>
+    <p class="lede">사소한 습관부터 반드시 알아야 할 수칙까지. 공식 패치노트·인벤·나무위키·Reddit 등에서 확인된 내용만 모았습니다. 최근 패치로 바뀐 항목은 <span class="tape">패치 번호</span>로, 확인이 필요한 항목은 <span class="tape tape-chk">확인 필요</span>로 표시했습니다.</p>
+  </div>
+  <aside class="mast-r" aria-label="수록 현황">
+    <div class="stamp stamp-big" aria-hidden="true">출처<br>확인</div>
+    <table class="ledger" id="ledger">
+      <caption>수록 현황</caption>
+      <tbody>
+        <tr><th>핵심</th><td data-k="core">-</td></tr>
+        <tr><th>중요</th><td data-k="imp">-</td></tr>
+        <tr><th>사소한 팁</th><td data-k="minor">-</td></tr>
+        <tr class="sum"><th>합계</th><td data-k="all">-</td></tr>
+      </tbody>
+    </table>
+  </aside>
+</header>
+
+<nav class="tabs" aria-label="주요 메뉴">
+  <a href="#tips" data-tab="tips"><b>01</b> 교범 · 팁</a>
+  <a href="#soundtest" data-tab="soundtest"><b>02</b> 사플 테스트</a>
+  <a href="#sources" data-tab="sources"><b>03</b> 출처 · 주의</a>
+</nav>
+
+<main>
+<!-- ───────────── 팁 ───────────── -->
+<section id="tips" class="panel" data-panel="tips">
+  <div class="tips-layout">
+    <aside class="filters" aria-label="필터">
+      <div class="f-block">
+        <label class="f-title" for="q">검색</label>
+        <input id="q" type="search" placeholder="예: 연막, 자기장, 붕대" autocomplete="off">
+      </div>
+      <div class="f-block">
+        <p class="f-title">중요도</p>
+        <div class="seg" id="impFilter" role="radiogroup" aria-label="중요도">
+          <button type="button" role="radio" aria-checked="true" data-imp="all">전체</button>
+          <button type="button" role="radio" aria-checked="false" data-imp="core">핵심</button>
+          <button type="button" role="radio" aria-checked="false" data-imp="imp">중요</button>
+          <button type="button" role="radio" aria-checked="false" data-imp="minor">사소</button>
+        </div>
+      </div>
+      <div class="f-block">
+        <p class="f-title">분류 <button type="button" class="linkbtn" id="catReset">전체 선택</button></p>
+        <div class="cats" id="catFilter"></div>
+      </div>
+      <div class="f-block f-opts">
+        <label class="chk"><input type="checkbox" id="onlyPatch"> 최근 패치 변경 항목만</label>
+      </div>
+      <p class="f-count" id="count" aria-live="polite"></p>
+    </aside>
+
+    <div class="tiplist" id="tipList"></div>
+  </div>
+</section>
+
+<!-- ───────────── 사플 테스트 ───────────── -->
+<section id="soundtest" class="panel" data-panel="soundtest" hidden>
+  <div class="st-head">
+    <h2><span class="num">02</span> 사플 테스트 <small>사운드 플레이 · 방향 판별 훈련</small></h2>
+    <div class="warnbox" role="note">
+      <strong>헤드폰·이어폰 착용 필수.</strong> 스피커로는 앞/뒤를 구분할 수 없습니다. 소리는 모두 Web Audio API로 실시간 합성한 연습용 소리이며 실제 게임 사운드가 아닙니다. 볼륨을 낮게 시작하세요 — 총소리는 큽니다.
+    </div>
+  </div>
+
+  <div class="st-grid">
+    <div class="st-compass-wrap">
+      <div class="compass" id="compass" aria-label="방향 선택 나침반">
+        <div class="ring" aria-hidden="true"></div>
+        <div class="me" aria-hidden="true"><span class="me-arrow"></span><span class="me-lbl">정면</span></div>
+      </div>
+      <div class="distrow" id="distRow" hidden>
+        <span class="f-title">거리</span>
+        <button type="button" class="dbtn" data-dist="near">근거리</button>
+        <button type="button" class="dbtn" data-dist="far">원거리</button>
+      </div>
+      <p class="keyhint">키보드: 숫자패드 <kbd>8</kbd>=정면 <kbd>2</kbd>=후방 <kbd>4</kbd>/<kbd>6</kbd>=좌/우 · <kbd>N</kbd>/<kbd>F</kbd>=근/원 · <kbd>R</kbd>=다시 듣기</p>
+    </div>
+
+    <div class="st-ctrl">
+      <div class="f-block">
+        <p class="f-title">난이도</p>
+        <div class="seg" id="diffSel" role="radiogroup" aria-label="난이도">
+          <button type="button" role="radio" aria-checked="true" data-diff="easy">훈련병</button>
+          <button type="button" role="radio" aria-checked="false" data-diff="normal">일반</button>
+          <button type="button" role="radio" aria-checked="false" data-diff="hard">숙련</button>
+        </div>
+        <p class="diffdesc" id="diffDesc"></p>
+      </div>
+      <div class="f-block row2">
+        <label class="chk"><input type="checkbox" id="useDist"> 거리(근/원)도 맞히기 <span class="mut">+30점</span></label>
+        <label class="sel">라운드 <select id="roundSel"><option>5</option><option selected>10</option><option>20</option></select></label>
+      </div>
+      <div class="btnrow">
+        <button type="button" class="btn btn-ghost" id="hpCheck">좌/우 확인음</button>
+        <button type="button" class="btn btn-main" id="startBtn">훈련 시작</button>
+      </div>
+      <div class="btnrow">
+        <button type="button" class="btn" id="replayBtn" disabled>다시 듣기 <span id="replayLeft"></span></button>
+        <button type="button" class="btn" id="turnL" disabled title="고개를 왼쪽으로 45° 돌린 상태로 다시 듣기">고개 ← 45°</button>
+        <button type="button" class="btn" id="turnR" disabled title="고개를 오른쪽으로 45° 돌린 상태로 다시 듣기">고개 → 45°</button>
+        <button type="button" class="btn" id="nextBtn" disabled>다음 라운드</button>
+      </div>
+
+      <div class="status" id="status" aria-live="polite">‘훈련 시작’을 누르면 소리가 한 번 재생됩니다. 들린 방향을 나침반에서 고르세요.</div>
+
+      <table class="score">
+        <tbody>
+          <tr><th>라운드</th><td id="sRound">0 / 10</td><th>점수</th><td id="sScore">0</td></tr>
+          <tr><th>방향 정확도</th><td id="sAcc">-</td><th>인접(±45°)</th><td id="sAdj">0</td></tr>
+          <tr><th>앞뒤 혼동</th><td id="sFB">0</td><th>거리 적중</th><td id="sDist">-</td></tr>
+          <tr><th>최고 기록</th><td colspan="3" id="sBest">-</td></tr>
+        </tbody>
+      </table>
+      <ol class="log" id="log" aria-label="라운드 기록"></ol>
+    </div>
+  </div>
+
+  <div class="st-notes">
+    <h3>채점 방식 · 팁</h3>
+    <ul>
+      <li>정확한 방향 100점, 바로 옆 방향(±45°) 40점, 거리 맞히기 켜면 근/원 적중 시 +30점.</li>
+      <li><b>앞뒤 혼동</b>: 정면↔후방처럼 앞뒤가 뒤집힌 오답 횟수. 게임에서도 가장 흔한 실수라, 실제로는 고개(Alt 자유 시점)를 돌려 비교합니다. 여기서는 ‘고개 ← / → 45°’ 버튼으로 같은 소리를 돌린 머리 방향에서 다시 들을 수 있습니다(다시 듣기 횟수 차감).</li>
+      <li>원거리 소리는 작고 고음이 깎여 둔하게 들립니다. 숙련 난이도는 바람 소리가 깔리고 방향이 정확히 8방위가 아니라 ±12° 흔들립니다.</li>
+      <li>브라우저 HRTF와 게임 엔진의 HRTF는 같지 않습니다. 이 테스트는 귀 훈련용 참고 도구입니다.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ───────────── 출처 ───────────── -->
+<section id="sources" class="panel" data-panel="sources" hidden>
+  <h2><span class="num">03</span> 출처 · 주의사항</h2>
+  <div class="src-grid">
+    <div>
+      <h3>참고 자료</h3>
+      <ol class="srclist" id="srcList"></ol>
+    </div>
+    <div class="caveats">
+      <h3>읽기 전에</h3>
+      <ul>
+        <li>이 페이지는 2026년 10월 4일, PC 패치 43.1(2026.09.10 적용) 기준으로 정리했습니다. 이후 패치로 수치·규칙이 바뀔 수 있습니다.</li>
+        <li><span class="tape">패치 번호</span> 표시는 해당 패치에서 새로 생기거나 바뀐 내용입니다.</li>
+        <li><span class="tape tape-chk">확인 필요</span> 표시는 출처가 오래됐거나 커뮤니티 주장이라 현재 버전에서 직접 확인이 필요한 항목입니다.</li>
+        <li>‘물속에 잠수하면 총알을 맞지 않는다’ 같은 오래된 통설은 43.1 수중 액션 개편 이후 확인하지 못해 넣지 않았습니다.</li>
+        <li>커뮤니티 팁 중 개인 취향(인벤 구성, 키 배치)은 ‘예시’로 표시했습니다.</li>
+        <li>PUBG 및 배틀그라운드는 KRAFTON, Inc.의 상표입니다. 이 사이트는 비공식 팬 자료이며 공식 로고·이미지·게임 사운드를 사용하지 않습니다.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <span>FM 26-43 · 비공식 팬 제작 · 2026.10.04</span>
+  <span>사플 테스트 사운드는 전부 브라우저에서 합성</span>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
